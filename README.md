@@ -1,5 +1,7 @@
 # Docker
 
+# Postgres
+
 ### Connect to PostgreSQL Database running on docker from local Machine.
 
 ```
@@ -37,3 +39,37 @@ CREATE DATABASE test;
   "password": "12345"
 ```
 
+# Mongodb
+
+### Connect to Mongodb running on docker from local Machine.
+
+```
+docker run -d -p 27017:27017 -v ~/dataMongo:/data/db mongo
+```
+
+### We need to enter the interactive shell using the below command
+
+```
+docker exec -it container-id bash
+
+```
+
+### And then type 
+
+```Mongo``` in the bash 
+
+### The next is to create/use the database
+
+```
+use testdb
+```
+
+### And to create user and password, execute the below command
+
+```
+db.createUser({
+  user: 'root',
+  pwd: '12345',
+  roles: [{ role: 'readWrite', db:'cool_db'}]
+})
+```
