@@ -1,5 +1,18 @@
 # Docker
 
+### Useful commands of docker
+##### It will remove all stopped containers, all networks not used by at least one container, all images without at least one container associated to them and all build cache
+
+```docker system prune -a``` 
+
+### Stops all the running containers
+
+```docker stop $(docker ps -aq)``` 
+
+### Removes all the stopped containers
+
+```docker rm $(docker ps -aq)```
+
 # Postgres
 
 ### Connect to PostgreSQL Database running on docker from local Machine.
@@ -51,7 +64,6 @@ docker run -d -p 27017:27017 -v ~/dataMongo:/data/db mongo
 
 ```
 docker exec -it container-id bash
-
 ```
 
 ### And then type 
